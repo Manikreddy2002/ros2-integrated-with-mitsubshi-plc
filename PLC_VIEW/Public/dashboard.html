@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <input class="time" type="text" id="current-time" readonly>
+    <title>PLC Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="title-bar">
+            <h1>PLC Dashboard</h1>
+        </div>
+        <div class="power-indicator">
+            <p>POWER:</p>
+            <div class="indicator" id="power-on"></div>
+        </div>
+        <div id="plc-status">
+            <div class="input-status">
+                <h2>INPUT STATUS</h2>
+                <div class="input-group">
+                    <p>X0:</p>
+                    <label><input type="radio" name="x0" value="on"> ON</label>
+                    <label><input type="radio" name="x0" value="off"> OFF</label>
+                </div>
+                <div class="input-group">
+                    <p>X1:</p>
+                    <label><input type="radio" name="x1" value="on"> ON</label>
+                    <label><input type="radio" name="x1" value="off"> OFF</label>
+                </div>
+                <div class="input-group">
+                    <p>X2:</p>
+                    <label><input type="radio" name="x2" value="on"> ON</label>
+                    <label><input type="radio" name="x2" value="off"> OFF</label>
+                </div>
+                <div class="input-group">
+                    <p>X3:</p>
+                    <label><input type="radio" name="x3" value="on"> ON</label>
+                    <label><input type="radio" name="x3" value="off"> OFF</label>
+                </div>
+                <div class="input-group">
+                    <p>X4:</p>
+                    <label><input type="radio" name="x4" value="on"> ON</label>
+                    <label><input type="radio" name="x4" value="off"> OFF</label>
+                </div>
+            </div>
+            <div class="output-status">
+                <h2>OUTPUT STATUS</h2>
+                <div class="output-group">
+                    <p>Y0:</p>
+                    <label><input type="radio" name="y0" value="on"> ON</label>
+                    <label><input type="radio" name="y0" value="off"> OFF</label>
+                </div>
+                <div class="output-group">
+                    <p>Y1:</p>
+                    <label><input type="radio" name="y1" value="on"> ON</label>
+                    <label><input type="radio" name="y1" value="off"> OFF</label>
+                </div>
+                <div class="output-group">
+                    <p>Y2:</p>
+                    <label><input type="radio" name="y2" value="on"> ON</label>
+                    <label><input type="radio" name="y2" value="off"> OFF</label>
+                </div>
+                <div class="output-group">
+                    <p>Y3:</p>
+                    <label><input type="radio" name="y3" value="on"> ON</label>
+                    <label><input type="radio" name="y3" value="off"> OFF</label>
+                </div>
+                <div class="output-group">
+                    <p>Y4:</p>
+                    <label><input type="radio" name="y4" value="on"> ON</label>
+                    <label><input type="radio" name="y4" value="off"> OFF</label>
+                </div>
+            </div>
+        </div>
+        <h2>Write Data to PLC</h2>
+            <form action="Write.php" method="post" onsubmit="return validateWrite()">
+                <div class="form">
+                    <input type="number" id="address" name="Address" placeholder="Address">
+                    <input type="number" id="value" name="Value" placeholder="Value">
+                </div>
+                <input class="done" type="submit" value="Write">
+            </form>
+        </div>
+        <div class="read-section">
+            <h2>Read Status from PLC</h2>
+            <button onclick="fetchPLCStatus()">Fetch Status</button>
+            <div id="status-output"></div>
+        </div>
+    </div>
+
+    </div>
+
+    <script src="dashboard.js"></script>
+    
+
+    
+</body>
+</html>
